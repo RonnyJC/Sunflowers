@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <title>Feliz día de las flores amarillas</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500;700&family=Lora:wght@400;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css" />
+</head>
+
+<body>
+
+    <main class="stage" aria-label="Ramo de girasoles animado">
+        <div class="stars" id="stars" aria-hidden="true"></div>
+        <div class="fly" id="fly" aria-hidden="true"></div>
+
+        <header class="titles">
+            <h1>Feliz día de las flores amarillas</h1>
+            <p class="sub">Ten este presente de mi parte</p>
+        </header>
+
+        <svg class="scene" viewBox="0 0 600 620" role="img" aria-label="Ramo de girasoles envuelto en papel rosa">
+            <defs>
+                <linearGradient id="gPetalBack" x1="0" y1="1" x2="0" y2="0">
+                    <stop offset="0" stop-color="#e88a00" />
+                    <stop offset=".55" stop-color="#f7b40a" />
+                    <stop offset="1" stop-color="#ffd21f" />
+                </linearGradient>
+                <linearGradient id="gPetalFront" x1="0" y1="1" x2="0" y2="0">
+                    <stop offset="0" stop-color="#f5a300" />
+                    <stop offset=".5" stop-color="#ffc60a" />
+                    <stop offset="1" stop-color="#ffec5c" />
+                </linearGradient>
+                <radialGradient id="gCenter" cx=".5" cy=".5" r=".5">
+                    <stop offset="0" stop-color="#150a03" />
+                    <stop offset=".7" stop-color="#25130a" />
+                    <stop offset="1" stop-color="#47280e" />
+                </radialGradient>
+                <linearGradient id="gLeaf" x1="0" y1="0" x2="1" y2="0">
+                    <stop offset="0" stop-color="#1c6b2b" />
+                    <stop offset="1" stop-color="#47b555" />
+                </linearGradient>
+                <linearGradient id="gWing" x1="0" y1="0" x2="1" y2="1">
+                    <stop offset="0" stop-color="#d9b9ea" stop-opacity=".8" />
+                    <stop offset="1" stop-color="#f6a9c8" stop-opacity=".6" />
+                </linearGradient>
+                <linearGradient id="gWingInner" x1="0" y1="0" x2="1" y2="1">
+                    <stop offset="0" stop-color="#fff" stop-opacity=".28" />
+                    <stop offset="1" stop-color="#fff" stop-opacity=".05" />
+                </linearGradient>
+                <linearGradient id="gCone" x1="0" y1="0" x2="0" y2="1">
+                    <stop offset="0" stop-color="#f9cfe0" stop-opacity=".9" />
+                    <stop offset=".55" stop-color="#ee8fb2" stop-opacity=".88" />
+                    <stop offset="1" stop-color="#d9507f" stop-opacity=".92" />
+                </linearGradient>
+                <linearGradient id="gPanel" x1="0" y1="0" x2="1" y2="0">
+                    <stop offset="0" stop-color="#fff" stop-opacity=".12" />
+                    <stop offset=".35" stop-color="#fff" stop-opacity=".3" />
+                    <stop offset="1" stop-color="#fff" stop-opacity=".06" />
+                </linearGradient>
+                <linearGradient id="gRibbon" x1="0" y1="0" x2="1" y2="1">
+                    <stop offset="0" stop-color="#f4ec2c" />
+                    <stop offset="1" stop-color="#b9c214" />
+                </linearGradient>
+                <linearGradient id="gLabel" x1="0" y1="0" x2="0" y2="1">
+                    <stop offset="0" stop-color="#f3d68a" />
+                    <stop offset="1" stop-color="#d9a441" />
+                </linearGradient>
+
+                <path id="petal" d="M0,-26 C16,-46 14,-80 0,-102 C-14,-80 -16,-46 0,-26Z" />
+                <path id="vein" d="M0,-30 L0,-84" fill="none" stroke="#c97a00" stroke-width="1.2" opacity=".45" />
+                <g id="leaf">
+                    <path d="M0,0 C22,-30 70,-34 96,0 C70,34 22,30 0,0Z" fill="url(#gLeaf)" />
+                    <path d="M4,0 L88,0" stroke="#0f4a1c" stroke-width="1.4" opacity=".5" fill="none" />
+                </g>
+                <g id="sf"></g>
+            </defs>
+
+            <!-- Pasto -->
+            <g class="grass" id="grass"></g>
+
+            <!-- Brote -->
+            <g id="sprout">
+                <g class="sp-leaf" style="--d:.35s">
+                    <use href="#leaf" transform="translate(300 596) rotate(-118) scale(.62)" />
+                </g>
+                <g class="sp-leaf" style="--d:.5s">
+                    <use href="#leaf" transform="translate(300 596) rotate(-62) scale(.62)" />
+                </g>
+                <g class="sp-leaf" style="--d:.65s">
+                    <use href="#leaf" transform="translate(300 596) rotate(-90) scale(.8)" />
+                </g>
+                <path class="sp-stem" pathLength="1" d="M300,596 C300,556 297,520 300,488" fill="none" stroke="#2f8f3a"
+                    stroke-width="5" stroke-linecap="round" />
+                <g transform="translate(300 484)">
+                    <g class="sp-flower">
+                        <use href="#sf" transform="scale(.17)" />
+                    </g>
+                </g>
+            </g>
+
+            <!-- Ramo -->
+            <g id="bouquet">
+                <!-- alas del papel -->
+                <g class="wing-l">
+                    <polygon points="118,228 252,322 190,350" fill="url(#gWing)" />
+                    <polygon points="118,228 226,304 176,326" fill="url(#gWingInner)" />
+                    <polygon points="118,228 252,322 190,350" fill="none" stroke="#fff" stroke-opacity=".25"
+                        stroke-width="1.2" />
+                    <g fill="#0a0910" opacity=".85">
+                        <rect x="-7" y="-7" width="14" height="14" transform="translate(168 292) rotate(45)" />
+                        <rect x="-7" y="-7" width="14" height="14" transform="translate(198 320) rotate(45)" />
+                        <rect x="-6" y="-6" width="12" height="12" transform="translate(142 258) rotate(45)" />
+                    </g>
+                </g>
+                <g class="wing-r">
+                    <polygon points="482,228 348,322 410,350" fill="url(#gWing)" />
+                    <polygon points="482,228 374,304 424,326" fill="url(#gWingInner)" />
+                    <polygon points="482,228 348,322 410,350" fill="none" stroke="#fff" stroke-opacity=".25"
+                        stroke-width="1.2" />
+                    <g fill="#0a0910" opacity=".85">
+                        <rect x="-7" y="-7" width="14" height="14" transform="translate(432 292) rotate(45)" />
+                        <rect x="-7" y="-7" width="14" height="14" transform="translate(402 320) rotate(45)" />
+                        <rect x="-6" y="-6" width="12" height="12" transform="translate(458 258) rotate(45)" />
+                    </g>
+                </g>
+
+                <!-- cono trasero -->
+                <g class="cone">
+                    <polygon points="196,332 404,332 334,598 266,598" fill="url(#gCone)" />
+                </g>
+
+                <g id="stems"></g>
+                <g id="leaves"></g>
+                <g id="flowers"></g>
+
+                <!-- cono frontal translúcido -->
+                <g class="front">
+                    <polygon points="208,340 392,340 328,594 272,594" fill="url(#gPanel)" />
+                    <path d="M208,340 L272,594 M392,340 L328,594 M300,340 L300,594" stroke="#fff" stroke-opacity=".22"
+                        stroke-width="1.2" fill="none" />
+                    <g opacity=".22" fill="#ffd0e0">
+                        <use href="#leaf" transform="translate(292 500) rotate(-70) scale(.3)" />
+                        <use href="#leaf" transform="translate(310 470) rotate(-110) scale(.28)" />
+                        <use href="#leaf" transform="translate(300 540) rotate(-95) scale(.25)" />
+                    </g>
+                    <ellipse cx="232" cy="352" rx="48" ry="12" transform="rotate(-6 232 352)" fill="url(#gRibbon)"
+                        opacity=".92" />
+                    <ellipse cx="368" cy="352" rx="48" ry="12" transform="rotate(6 368 352)" fill="url(#gRibbon)"
+                        opacity=".92" />
+                    <rect x="270" y="362" width="60" height="46" rx="5" fill="url(#gLabel)" opacity=".78" />
+                    <path
+                        d="M300,394 C284,383 288,372 296,372 C299,372 300,375 300,376 C300,375 301,372 304,372 C312,372 316,383 300,394Z"
+                        fill="#fff" opacity=".7" />
+                </g>
+            </g>
+        </svg>
+
+        <div class="gift-wrap">
+            <span class="hint" aria-hidden="true">Un detalle para ti</span>
+            <button class="gift" id="gift" type="button" aria-label="Abrir mensaje" title="Abrir mensaje">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"
+                    stroke-linejoin="round" aria-hidden="true">
+                    <rect x="3" y="5" width="18" height="14" rx="2.5" />
+                    <path d="M3.5 6.5 12 13l8.5-6.5" />
+                </svg>
+            </button>
+        </div>
+    </main>
+
+    <!-- Tarjetas -->
+    <div class="overlay" id="overlay" hidden role="dialog" aria-modal="true" aria-label="Mensaje para ti">
+        <div class="card">
+            <button class="close" id="close" type="button" aria-label="Cerrar">&times;</button>
+
+            <div class="viewport" id="viewport">
+                <div class="track" id="track">
+                    <article class="slide">
+                        <div class="pic" id="pic1"></div>
+                        <h2>Para ti</h2>
+                        <p>Las flores amarillas representan la luz, la alegría y la energía que traes a mi vida cada
+                            día.</p>
+                    </article>
+                    <article class="slide">
+                        <div class="pic" id="pic2"></div>
+                        <h2>Con mucho cariño</h2>
+                        <p>Espero que este detalle ilumine tu día y te recuerde lo especial que eres para mí.</p>
+                    </article>
+                    <article class="slide">
+                        <div class="pic" id="pic3"></div>
+                        <h2>¡Feliz día!</h2>
+                        <p>Nunca dejes de brillar con esa sonrisa tan hermosa. ¡Te quiero muchísimo!</p>
+                    </article>
+                </div>
+            </div>
+
+            <div class="nav">
+                <button class="arrow" id="prev" type="button" aria-label="Anterior">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M15 5l-7 7 7 7" />
+                    </svg>
+                </button>
+                <div class="dots" id="dots" role="tablist" aria-label="Mensajes"></div>
+                <button class="arrow" id="next" type="button" aria-label="Siguiente">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M9 5l7 7-7 7" />
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </div>
+    <script src="js/animation.js" defer></script>
+</body>
+
+</html>
